@@ -1,17 +1,16 @@
-## Foundry
+## TimeLock
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Time locks are a powerful tool in the world of smart contracts, offering an added layer of security and transparency to transactions. They function by delaying the execution of specific functions within a smart contract for a predetermined amount of time.
 
-Foundry consists of:
+Here's a breakdown of how time locks work:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+**Basic Function**:
 
-## Documentation
+- A timelock smart contract acts as an intermediary between the triggering of an action and its execution.
 
-https://book.getfoundry.sh/
+- Upon triggering (e.g., a transaction being initiated), the timelock contract holds the action in a queue until the designated time period has elapsed.
+
+- Once the timelock expires, the action will be executed by a person within the specified time interval.
 
 ## Usage
 
@@ -27,40 +26,3 @@ $ forge build
 $ forge test
 ```
 
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
